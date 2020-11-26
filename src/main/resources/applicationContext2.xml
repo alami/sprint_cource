@@ -8,6 +8,6 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id = "myPet" class="spring_introduction.Dog"
-            scope="singleton"></bean>
+            scope="prototype"></bean>
 
 </beans>
