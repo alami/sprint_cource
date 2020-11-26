@@ -10,13 +10,15 @@ public class Person {
     private String surname;
     private int age;
 
+//    @Autowired
+//    public Person (Pet pet) {
+//        System.out.println(color.GREEN+"Person bean is created"+color.RESET);
+//        this.pet = pet;
+//    }
+
     @Autowired
-    public Person (Pet pet) {
-        System.out.println(color.GREEN+"Person bean is created"+color.RESET);
-        this.pet = pet;
-    }
-    public void setPet(Pet pet) {
-        System.out.println(color.GREEN+"Class Person : set pet"+color.RESET);
+    public void anyMethidDI(Pet pet) { //setPet
+        System.out.println(color.GREEN+"Class Person : anyMethidDI (set pet)"+color.RESET);
         this.pet = pet;
     }
 
