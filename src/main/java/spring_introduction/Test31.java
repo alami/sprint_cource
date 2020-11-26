@@ -14,7 +14,7 @@ public class Test31 {
 ////        Person person = new Person(pet);
         Person person = context.getBean("myPerson", Person.class);
         person.callYourPet();
-
+        System.out.println(color.RED+person.getSurname() + ", "+person.getAge()+color.RESET);
         context.close();
      
 //        Person person1 = new Person(new Cat());
