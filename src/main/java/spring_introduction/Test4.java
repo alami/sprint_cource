@@ -11,14 +11,14 @@ public class Test4 {
                 new ClassPathXmlApplicationContext("applicationContext2.xml");
 ////        Pet pet = context.getBean("myPet", Pet.class);
         Dog myDog  = context.getBean("myPet", Dog.class);
-        myDog.setName("Belka");
+//        myDog.setName("Belka");
         Dog yourDog = context.getBean("myPet", Dog.class);
-        yourDog.setName("Strelka");
+//        yourDog.setName("Strelka");
 //        pet.say();
 ////        Person person = new Person(pet);
         System.out.println("Is the same object ?" + (myDog==yourDog));
-        System.out.println(myDog.getName());
-        System.out.println(yourDog.getName());
+//        System.out.println(myDog.getName());
+//        System.out.println(yourDog.);
 
 
          context.close();
