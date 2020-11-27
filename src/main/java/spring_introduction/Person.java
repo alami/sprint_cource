@@ -1,25 +1,29 @@
 package spring_introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
 
-    @Autowired
+//    @Autowired
+//    @Qualifier("cat")
     private Pet pet;
     private String surname;
     private int age;
 
-//    @Autowired
-//    public Person (Pet pet) {
-//        System.out.println(color.GREEN+"Person bean is created"+color.RESET);
-//        this.pet = pet;
-//    }
-    public Person () {
+    @Autowired
+    public Person (@Qualifier("cat") Pet pet) {
         System.out.println(color.GREEN+"Person bean is created"+color.RESET);
+        this.pet = pet;
     }
+//    public Person () {
+//        System.out.println(color.GREEN+"Person bean is created"+color.RESET);
+//    }
 
+//    @Autowired
+//    @Qualifier("cat")
     public void setPet(Pet pet) {
         System.out.println(color.GREEN+"Class Person : set pet"+color.RESET);
         this.pet = pet;
