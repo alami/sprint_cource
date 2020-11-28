@@ -3,10 +3,7 @@ package aop.aspect;
 import aop.Book;
 import aop.Student;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -37,12 +34,16 @@ public class UniversityLoggingAspect {
 //        System.out.println(color.YELLOW+"afterReturningGetStudentsAdvice: " +
 //                "логируем получение списка студентов после метода  getStudets");
 //    }
-    @AfterThrowing (pointcut = "execution(* getStudents())"
-    , throwing = "exception")
-    public void afterThrowingGetStudentsAdvice (Throwable exception) {
-
-        System.out.println(color.RED +"afterThrowingGetStudentsAdvice:" +
-                " логируем выброс исключения - "+exception+color.RESET);
+//    @AfterThrowing (pointcut = "execution(* getStudents())"
+//    , throwing = "exception")
+//    public void afterThrowingGetStudentsAdvice (Throwable exception) {
+//        System.out.println(color.RED +"afterThrowingGetStudentsAdvice:" +
+//                " логируем выброс исключения - "+exception+color.RESET);
+//    }
+    @After("execution(* getStudents())")
+    public void afterGetStudentsAdvice () {
+        System.out.println(color.YELLOW +"afterGetStudentsAdvice:" +
+                " логируем нормальное завершение или выброс исключения"+color.RESET);
     }
 
 }

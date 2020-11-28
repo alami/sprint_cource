@@ -21,11 +21,11 @@ public class University {
     }
     public List<Student> getStudents () {
         System.out.println(color.RED + "Начало работы метода getStudents"+color.RESET);
-        System.out.println(students.get(3));//-->нет такого -> исключение
+        //System.out.println(students.get(3));//  т.к. нет такого -> исключение
 
         System.out.println(color.BLUE+"Information from method getStudents:  ");
         System.out.println(students);
-        System.out.println(color.RESET);
+        System.out.print(color.RESET);
         return students;
     }
 }
