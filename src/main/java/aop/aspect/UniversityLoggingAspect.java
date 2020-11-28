@@ -4,6 +4,7 @@ import aop.Book;
 import aop.Student;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -16,24 +17,32 @@ import java.util.List;
 @Component
 @Aspect
 public class UniversityLoggingAspect {
-    @Before("execution(* getStudents())")
-    public void beforeGetStudentsAdvice () {
-        System.out.println(color.YELLOW+"beforeGetStudentsAdvice: " +
-                "логируем получение списка студентов перед методом getStudets");
-    }
-    @AfterReturning(pointcut="execution(* getStudents())"
-                , returning = "students")
-    public void afterReturningGetStudentsAdvice (List<Student> students) {
-        Student firstStudent = students.get(0);
-        String nameSurname = firstStudent.getName();
-        nameSurname = "Mr."+ nameSurname;
-        firstStudent.setName(nameSurname);
+//    @Before("execution(* getStudents())")
+//    public void beforeGetStudentsAdvice () {
+//        System.out.println(color.YELLOW+"beforeGetStudentsAdvice: " +
+//                "логируем получение списка студентов перед методом getStudets");
+//    }
+//    @AfterReturning(pointcut="execution(* getStudents())"
+//                , returning = "students")
+//    public void afterReturningGetStudentsAdvice (List<Student> students) {
+//        Student firstStudent = students.get(0);
+//        String nameSurname = firstStudent.getName();
+//        nameSurname = "Mr."+ nameSurname;
+//        firstStudent.setName(nameSurname);
+//
+//        double avrGrade = firstStudent.getAvgGrade();
+//        avrGrade = avrGrade +1;
+//        firstStudent.setAvgGrade(avrGrade);
+//
+//        System.out.println(color.YELLOW+"afterReturningGetStudentsAdvice: " +
+//                "логируем получение списка студентов после метода  getStudets");
+//    }
+    @AfterThrowing (pointcut = "execution(* getStudents())"
+    , throwing = "exception")
+    public void afterThrowingGetStudentsAdvice (Throwable exception) {
 
-        double avrGrade = firstStudent.getAvgGrade();
-        avrGrade = avrGrade +1;
-        firstStudent.setAvgGrade(avrGrade);
-
-        System.out.println(color.YELLOW+"afterReturningGetStudentsAdvice: " +
-                "логируем получение списка студентов после метода  getStudets");
+        System.out.println(color.RED +"afterThrowingGetStudentsAdvice:" +
+                " логируем выброс исключения - "+exception+color.RESET);
     }
+
 }

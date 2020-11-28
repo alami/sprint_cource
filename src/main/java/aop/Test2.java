@@ -11,9 +11,12 @@ public class Test2 {
                 new AnnotationConfigApplicationContext(MyConfig.class);
         University university = context.getBean("university",University.class);
         university.addStudents();
-        List<Student> students = university.getStudents();
-        System.out.println(color.GREEN+students+color.RESET);
-
+        try {
+            List<Student> students = university.getStudents();
+            System.out.println(color.GREEN+students+color.RESET);
+        }catch (Exception e) {
+            System.out.println(color.RED+"Поймано исключение: "+e+color.RESET);
+        }
         context.close();
 
     }

@@ -20,6 +20,9 @@ public class University {
         students.add(st3);
     }
     public List<Student> getStudents () {
+        System.out.println(color.RED + "Начало работы метода getStudents"+color.RESET);
+        System.out.println(students.get(3));//-->нет такого -> исключение
+
         System.out.println(color.BLUE+"Information from method getStudents:  ");
         System.out.println(students);
         System.out.println(color.RESET);
