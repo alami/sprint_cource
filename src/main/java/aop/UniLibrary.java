@@ -16,4 +16,13 @@ public class UniLibrary extends AbstractLibrary {
     public void getMagazine () {
         System.out.println(color.GREEN + "Мы берем журнал из UniLibrary " + color.BLACK);
     }
+    public void returnMagazine () {
+        System.out.println(color.GREEN + "Мы возвращаем журнал в UniLibrary " + color.BLACK);
+    }
+    public void addBook () {
+        System.out.println(color.GREEN + "Мы добавляем книгу в UniLibrary " + color.BLACK);
+    }
+    public void addMagazine () {
+        System.out.println(color.GREEN + "Мы добавляем журнал в UniLibrary " + color.BLACK);
+    }
 }
