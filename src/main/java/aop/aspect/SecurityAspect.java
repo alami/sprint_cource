@@ -10,9 +10,9 @@ import spring_introduction.color;
 @Aspect
 @Order(2)
 public class SecurityAspect {
-    @Before("aop.aspect.MyPointcuts.allGetMethods()")
+    @Before("aop.aspect.MyPointcuts.allAddMethods()")
     public void beforeGetSecurityAdvice () {
-        System.out.println(color.BLUE+"beforeGetSecurityAdvice: " +
-                "проверка прав на получение книг/журналов"+color.RESET);
+        System.out.println(color.GREEN+"beforeGetSecurityAdvice: " +
+                "проверка прав на добавления книг/журналов"+color.RESET);
     }
 }

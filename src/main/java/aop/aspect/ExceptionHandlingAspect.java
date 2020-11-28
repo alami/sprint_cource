@@ -10,9 +10,9 @@ import spring_introduction.color;
 @Aspect
 @Order(3)
 public class ExceptionHandlingAspect {
-    @Before("aop.aspect.MyPointcuts.allGetMethods()")
-    public void beforeGetExceptionHandlingAspect () {
-        System.out.println(color.BLUE+"beforeGetExceptionHandlingAspect: " +
-                "ловим/обрабатываем исключение при попытке получения книг/журналов"+color.RESET);
+    @Before("aop.aspect.MyPointcuts.allAddMethods()")
+    public void beforeAddExceptionHandlingAspect () {
+        System.out.println(color.RED+"beforeAddExceptionHandlingAspect: " +
+                "ловим/обрабатываем исключение при попытке добавления книг/журналов"+color.RESET);
     }
 }
