@@ -6,9 +6,9 @@ import spring_introduction.color;
 @Component
 public class UniLibrary extends AbstractLibrary {
 
-    @Override
-    public void getBook () {
-        System.out.println(color.GREEN + "Мы берем книгу из UniLibrary" + color.BLACK);
+//    @Override
+    public void getBook (Book book) {
+        System.out.println(color.GREEN + "Мы берем книгу из UniLibrary - "+ book.getName() + color.BLACK);
     }
     public void returnBook () {
         System.out.println(color.GREEN + "Мы возвращаем книгу в UniLibrary" + color.BLACK);
