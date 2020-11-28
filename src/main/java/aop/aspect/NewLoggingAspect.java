@@ -14,14 +14,19 @@ public class NewLoggingAspect {
             throws Throwable {
 
         System.out.println(color.YELLOW +"AroundReturnBookLoggingAdvice: " +
-                "в библиотеку пытаются книгу"+color.RESET);
-        long begin = System.currentTimeMillis();
-        Object targetMethodResult = proceedingJoinPoint.proceed();
-        long end = System.currentTimeMillis();
+                "в библиотеку пытаются вернуть книгу"+color.RESET);
+        Object targetMethodResult = null;
+        try {
+            targetMethodResult = proceedingJoinPoint.proceed();
 
+        } catch (Exception e ) {
+            System.out.println(color.RED +"AroundReturnBookLoggingAdvice: исключение - "
+                    +e +color.RESET);
+            targetMethodResult = "Неизвестное название книги";
+            throw e;
+        }
         System.out.println(color.YELLOW +"AroundReturnBookLoggingAdvice: " +
-                "в библиотеку успешно вернули книгу за " +
-                (end-begin)+" msec"+color.RESET);
+                "в библиотеку успешно вернули книгу"+color.RESET);
         return targetMethodResult;
     }
 }

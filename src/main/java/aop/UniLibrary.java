@@ -11,6 +11,7 @@ public class UniLibrary extends AbstractLibrary {
         System.out.println(color.BLUE + "Мы берем книгу из UniLibrary " + color.BLACK);
     }
     public String returnBook () {
+        int i = 10/0;
         System.out.println(color.BLUE + "Мы возвращаем книгу в UniLibrary " + color.BLACK);
         return "Война и мир";
     }
