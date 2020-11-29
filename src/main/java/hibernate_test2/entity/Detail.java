@@ -21,11 +21,22 @@ public class Detail {
 
     public Detail() {
     }
+    @OneToOne(mappedBy = "empDetail",
+            cascade = CascadeType.ALL)
+    private Employee employee;
 
     public Detail(String city, String phoneNumber, String email) {
         this.city = city;
         this.phoneNumber = phoneNumber;
         this.email = email;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public int getId() {
