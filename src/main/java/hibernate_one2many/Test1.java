@@ -16,28 +16,31 @@ public class Test1 {
         Session session = null;
         try {
             session = factory.getCurrentSession();
-//            Department dep = new Department("IT", 1200, 300);
+// 3           Department dep = new Department("IT", 1200, 300);
 //            Employee emp1 = new Employee("Zaur", "Tregulov",  800);
-//            Employee emp2    = new Employee("Alex", "Ivanov", 1000);
+//            Employee emp2 = new Employee("Alex", "Ivanov", 1000);
+//            Employee emp3 = new Employee("Elena", "Smirnova", 1200);
 //            dep.addEmployeeToDepartment(emp1);
 //            dep.addEmployeeToDepartment(emp2);
+//            dep.addEmployeeToDepartment(emp3);
 
             session.beginTransaction();
-//2           Department dep = session.get(Department.class,1);
-            Employee emp = session.get(Employee.class, 1);
+           Department dep = session.get(Department.class,5);
+//            Employee emp = session.get(Employee.class, 1);
 
-//            session.save(dep);
+//3            session.save(dep);
 
             System.out.println("Done!");
-            System.out.println(color.BLUE+emp+color.RESET);
-            System.out.println(color.GREEN+emp.getDepartment()+color.RESET);
-//2            System.out.println(color.BLUE+dep+color.RESET);
-//2            System.out.println(color.GREEN+dep.getEmps()+color.RESET);
+//            System.out.println(color.BLUE+emp+color.RESET);
+//            System.out.println(color.GREEN+emp.getDepartment()+color.RESET);
+            System.out.println(color.BLUE+dep+color.RESET);
+            dep.getEmps().get(0);//только чтобы подгрузить LASY до session...COMMIT-а :)
 //
 //            department.getEmployee().setEmpDepartment(null);
-            session.delete(emp);
+  ///          session.delete(emp);
 
             session.getTransaction().commit();
+            System.out.println(color.GREEN+dep.getEmps()+color.RESET);
         } finally {
             session.close();
             factory.close();
