@@ -1,6 +1,6 @@
 package hibernate_one2many;
-import hibernate_test2.entity.Detail;
-import hibernate_test2.entity.Employee;
+import hibernate_one2many.entity.Department;
+import hibernate_one2many.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,30 +11,31 @@ public class Test1 {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(Detail.class)
+                .addAnnotatedClass(Department.class)
                 .buildSessionFactory();
         Session session = null;
         try {
             session = factory.getCurrentSession();
-//            Employee employee = new Employee("Zaur", "Tregulov", "IT", 500);
-//            Detail detail = new Detail("Baku", "123435345", "zaurtregulov@gmail.com");
-                        //            Employee employee    = new Employee("Alex", "Ivanov", "IT", 600);
-                        //            Detail detail = new Detail("Moscow", "987652345", "alex@gmail.com");
-//            employee.setEmpDetail(detail);
-//            detail.setEmployee(employee);
+//            Department dep = new Department("IT", 1200, 300);
+//            Employee emp1 = new Employee("Zaur", "Tregulov",  800);
+//            Employee emp2    = new Employee("Alex", "Ivanov", 1000);
+//            dep.addEmployeeToDepartment(emp1);
+//            dep.addEmployeeToDepartment(emp2);
+
             session.beginTransaction();
-                        //            session.save(employee);
-//            session.save(detail);
-            Detail detail = session.get(Detail.class,3);
+//2           Department dep = session.get(Department.class,1);
+            Employee emp = session.get(Employee.class, 1);
+
+//            session.save(dep);
 
             System.out.println("Done!");
-//            System.out.println(color.BLUE+employee+color.RESET);
-//            System.out.println(color.GREEN+employee.getEmpDetail()+color.RESET);
-            System.out.println(color.BLUE+detail+color.RESET);
-            System.out.println(color.GREEN+detail.getEmployee()+color.RESET);
-
-            detail.getEmployee().setEmpDetail(null);
-            session.delete(detail);
+            System.out.println(color.BLUE+emp+color.RESET);
+            System.out.println(color.GREEN+emp.getDepartment()+color.RESET);
+//2            System.out.println(color.BLUE+dep+color.RESET);
+//2            System.out.println(color.GREEN+dep.getEmps()+color.RESET);
+//
+//            department.getEmployee().setEmpDepartment(null);
+            session.delete(emp);
 
             session.getTransaction().commit();
         } finally {
