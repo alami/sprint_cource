@@ -51,6 +51,11 @@ CREATE TABLE my_db.employees (
   FOREIGN KEY (department_id) REFERENCES my_db.departments(id));
 
 //-----------------------------  17 ------------
+drop table my_db.child_section;
+drop table my_db.children;
+drop table my_db.section;
+
+
   CREATE TABLE my_db.children (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(15),
@@ -70,3 +75,5 @@ CREATE TABLE my_db.employees (
     PRIMARY KEY (child_id, section_id),
     FOREIGN KEY (child_id) REFERENCES my_db.children(id),
     FOREIGN KEY (section_id) REFERENCES my_db.section(id));
+------------------------------------------------
+https://stackoverflow.com/questions/45688479/org-hibernate-id-enhanced-tablestructure-could-not-read-a-hi-value/45698909
